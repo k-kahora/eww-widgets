@@ -19,6 +19,8 @@
         default = pkgs.mkShell {
           packages = [
 	    pkgs.eww-wayland
+	    pkgs.just
+	    pkgs.swww
           ];
 	  shellHook = ''
 	  export XDG_CONFIG_HOME="/home/malcolm/.config/"

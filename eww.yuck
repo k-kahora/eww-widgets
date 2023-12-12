@@ -1,1 +1,21 @@
-/home/malcolm/.config/eww/eww.yuck
+
+(defwidget greeter [?text name]
+  (box :orientation "horizontal"
+       :halign "center"
+    text
+    (button :onclick "./sww.sh"
+      "Greet")))
+
+(defwindow example
+           :monitor 1
+           :geometry (geometry :x "2%"
+                               :y "2px"
+                               :width "10%"
+                               :height "30px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+  (greeter :text "Swap wallpaper"
+           :name "Tim"))
