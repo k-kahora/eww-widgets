@@ -1,4 +1,12 @@
 directory="/home/malcolm/Documents/Wallpapers/"
+BUTTON_TOGGLE=$HOME/.button
+if [ ! -e "$BUTTON_TOGGLE" ]; then
+	touch "$BUTTON_TOGGLE"
+	eww update button-state="./button-clicked.png" --config ./
+else
+	rm "$BUTTON_TOGGLE"
+	eww update button-state="./button.png" --config ./
+fi
 random_file=$(ls "$directory" | shuf -n 1)
 
 # (image :path "./button.png")
