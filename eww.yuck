@@ -3,19 +3,19 @@
   (box :orientation "horizontal"
        :halign "center"
     text
-    (button :onclick "./sww.sh"
-      "")))
+    (overlay(image :path "./button.png") (button :onclick "./sww.sh"
+      "Yuck")  )
 
+     ))
 (defwindow example
            :monitor 1
            :geometry (geometry :x "2%"
                                :y "2px"
                                :width "10%"
-                               :height "30px"
-                               :anchor "top left")
+                               :height "70px"
+                               :anchor "top right")
            :stacking "fg"
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-  (greeter :text "Swap wallpaper"
-           :name "Tim"))
+(greeter :name "mal" :text "welcom")  )

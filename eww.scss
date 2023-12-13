@@ -5,25 +5,25 @@ $surface-grey: #2b3238;
 $surface-red: #f87070;
 
 * { all: unset; }
-
-button {
-    padding: 24px 24px;
-    background-color: #ff0000; /* Red background */
-    color: white; /* White text */
-    font-size: 16px;
-    border: none;
-    border-radius: 80%;
-    box-shadow: 0 40px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+// button {
+//     padding: 24px 24px;
+//     // background-color: #ff0000; /* Red background */
+//     background-image: url('/home/malcolm/Projects/widgets/wallpaper-switcher/button.png')
+//     color: white; /* White text */
+//     font-size: 16px;
+//     border: none;
+//     border-radius: 80%;
+//     box-shadow: 0 40px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
     
 
-    &:hover {
-        background-color: #e60000; /* Slightly darker red on hover */
-    }
+//     &:hover {
+//         background-color: #e60000; /* Slightly darker red on hover */
+//     }
 
-    &:active {
-        background-color: #cc0000; /* Even darker red when active/clicked */
-    }
-}
+//     &:active {
+//         background-color: #cc0000; /* Even darker red when active/clicked */
+//     }
+// }
 
 // .layout-box {
 //   font-family: Phosphor, Koulen;

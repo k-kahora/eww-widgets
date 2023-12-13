@@ -6,4 +6,12 @@ Just as imple eww widget that selects a randow wallpaper in the WALLPAPER enviro
 ** DONE Pick a randow image from the WALLPAPER Directory
 ** TODO Style the button with nix-colors so it does not look terrible
 ** TODO Make the entire thing into a complete nix package / derivation
+* Plan for this project
+
+- Place the button on top of the image using an overlay
+- The image is under the button
+- When the button is clicked create a file in a directory that keeps track of the state of the button. Example is on hover set hover state to 1 and change the image of the button
+- On click change the click state to 1 so we get a different image for the hover
+- Place a background panel image
+- Sprite appears to be 5 times the size of the orignal to get a decent sizeon it
 

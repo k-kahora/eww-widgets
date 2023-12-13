@@ -8,3 +8,5 @@ init:
   eww daemon --config ./
 open:
   eww open example --config ./
+inspect:
+  eww inspector --config ./
