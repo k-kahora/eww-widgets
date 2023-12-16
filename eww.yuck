@@ -3,21 +3,23 @@
   (box :orientation "horizontal"
        :halign "center"
     text
-    (overlay(image :path button-state) (button :onclick "./sww.sh"
-      button-state)
-     )))
-     
-(defvar button-state "./button.png")
+    (overlay 
+
+      (button :onhover "./sww.sh" ""))))
+(defvar button-state "./button-clicked.png")
+
+(defwidget event-boxer [] 
+  (eventbox :onhover "./test.sh"))
      
 (defwindow example
            :monitor 1
            :geometry (geometry :x "2%"
                                :y "2px"
                                :width "10%"
-                               :height "70px"
+                               :height "170px"
                                :anchor "top right")
            :stacking "fg"
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-(greeter :name "mal" :text "welcom")  )
+   (box :style "background-image: url('./button.png')"))

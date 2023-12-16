@@ -5,81 +5,15 @@ $surface-grey: #2b3238;
 $surface-red: #f87070;
 
 * { all: unset; }
-// button {
-//     padding: 24px 24px;
-//     // background-color: #ff0000; /* Red background */
-//     background-image: url('/home/malcolm/Projects/widgets/wallpaper-switcher/button.png')
-//     color: white; /* White text */
-//     font-size: 16px;
-//     border: none;
-//     border-radius: 80%;
-//     box-shadow: 0 40px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    
+box {
+    background-color: $surface-fg;
+    animation-name: frame-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(8);
+}
 
-//     &:hover {
-//         background-color: #e60000; /* Slightly darker red on hover */
-//     }
-
-//     &:active {
-//         background-color: #cc0000; /* Even darker red when active/clicked */
-//     }
-// }
-
-// .layout-box {
-//   font-family: Phosphor, Koulen;
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   padding: 5em;
-//   color: rgba($surface-fg, 0.8);
-// }
-
-// .net-box,
-// .bat-box,
-// .tm-box {
-//   label {
-//     font-size: 2em;
-//   }
-// }
-
-// .close-btn {
-//   font-size: 2em;
-//   &:hover {
-//     color: $surface-red;
-//   }
-// }
-
-// .btns-box {
-//   font-size: 2.5em;
-
-//   button {
-//     padding: 0.4em;
-//     border-radius: 0.1em;
-//     background-color: rgba($surface-darkgrey, 0.3);
-
-//     &:hover {
-//       transition: 200ms linear background-color, border-radius;
-//       background-color: rgba($surface-lightgrey, 0.6);
-//     }
-
-//     &:first-child {
-//       color: rgba($surface-red, 0.8);
-//     }
-//   }
-// }
-
-// .sep {
-//   font-size: 1.5em;
-//   padding-top: 0.15em;
-//   padding-left: 0.2em;
-//   padding-right: 0.2em;
-//   color: $surface-lightgrey;
-// }
-
-// .sundial-lbl {
-//   font-size: 1.5em;
-//   font-weight: bold;
-//   border-radius: 0.2em;
-//   padding: 0.4em;
-//   padding-bottom: 0.5em;
-//   font-family: "Poiret One";
-// }
+@keyframes frame-animation {
+    0%   { background-image: url('./button.png'); }
+    100% { background-image: url('./button-clicked.png'); }
+}
