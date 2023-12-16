@@ -5,14 +5,37 @@ $surface-grey: #2b3238;
 $surface-red: #f87070;
 
 * { all: unset; }
-box {
+button {
+    animation-play-state: paused;
     background-color: $surface-fg;
     animation-name: frame-animation;
-    animation-duration: 0.8s;
-    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
     animation-timing-function: steps(8);
 }
 
+
+button:not(:hover) {
+    animation-name: frame-animation-reverse;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+button:hover {
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+@keyframes frame-animation-reverse {
+    0% { background-image: url('./Button/button8.png'); }
+    12% { background-image: url('./Button/button7.png'); }
+    24% { background-image: url('./Button/button6.png'); }
+    48% { background-image: url('./Button/button5.png'); }
+    60% { background-image: url('./Button/button4.png'); }
+    72% { background-image: url('./Button/button3.png'); }
+    88% { background-image: url('./Button/button2.png'); }
+    100% { background-image: url('./Button/button1.png'); }
+}
 @keyframes frame-animation {
     0% { background-image: url('./Button/button1.png'); }
     12% { background-image: url('./Button/button2.png'); }

@@ -8,18 +8,18 @@
       (button :onhover "./sww.sh" ""))))
 (defvar button-state "./button-clicked.png")
 
-(defwidget event-boxer [] 
-  (eventbox :onhover "./test.sh"))
+(defwidget event-boxer [?text] 
+  (eventbox :onhover "./test.sh" (button)))
      
 (defwindow example
            :monitor 1
            :geometry (geometry :x "2%"
                                :y "2px"
-                               :width "10%"
-                               :height "170px"
+                               :width "252px"
+                               :height "156px"
                                :anchor "top right")
            :stacking "fg"
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-   (box))
+   (event-boxer))
