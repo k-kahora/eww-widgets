@@ -5,27 +5,39 @@ $surface-grey: #2b3238;
 $surface-red: #f87070;
 
 * { all: unset; }
-button:active {
+.glass:active {
     // animation-play-state: paused;
-    animation-name: none;
-    background-image: url('./Button/button-clicked.png'); 
+    // background-color: red;
+    .blue:active {
+	background-color: red;
+	animation-name: none;
+    }
 }
-button {
+.glass {
     animation-play-state: paused;
     animation-name: frame-animation;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
     animation-timing-function: steps(8);
+    min-width: 252px;
+    min-height: 156px;
+}
+
+.blue {
+    min-width: 252px;
+    min-height: 156px;
+    background-image: url('./Button/button.png'); 
+
 }
 
 
-button:not(:hover) {
+.glass:not(:hover) {
     animation-name: frame-animation-reverse;
     animation-iteration-count: 1;
     animation-play-state: running;
 }
 
-button:hover {
+.glass:hover {
     animation-iteration-count: 1;
     animation-play-state: running;
 }

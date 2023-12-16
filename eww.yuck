@@ -6,20 +6,19 @@
     (overlay 
 
       (button :onhover "./sww.sh" ""))))
-(defvar button-state "./button-clicked.png")
+(defvar button-state "./Button/button.png")
 
 (defwidget event-boxer [?text] 
-  (eventbox :onclick "./sww.sh" (button :onclick "./sww.sh")))
+  (box :halign "end" :orientation "horizontal" :hexpand false :vexpand false (overlay (image :path button-state )(button :class "glass" :onclick "./magic.sh" :timeout "6s" ) )))
      
 (defwindow example
            :monitor 1
            :geometry (geometry :x "2%"
                                :y "2%"
-                               :width "252px"
-                               :height "156px"
+                               :width "50%"
+                               :height "10%"
                                :anchor "top right")
            :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
+           :windowtype "normal"
+           :wm-ignore true
    (event-boxer))

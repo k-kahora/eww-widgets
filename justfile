@@ -15,3 +15,4 @@ inspect:
   eww inspector --config ./
 update var val:
   eww update {{var}}={{val}} --config ./
+  
