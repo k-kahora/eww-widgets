@@ -21,10 +21,13 @@
       {
         packages = {
           wow = pkgs.symlinkJoin {
+	    src = ./.;
 	    name = my-name;
-	    paths = [my-script] ++ [pkgs.swww pkgs.just pkgs.ewww];
+	    paths = [my-script] ++ [pkgs.swww pkgs.just pkgs.eww-wayland];
 	    buildInputs = [pkgs.makeWrapper];
-	    builder = ./builder.sh;
+	    buildPhase = ''
+	    mkdir -p $out/tester
+	    '';
 
             postBuild = "wrapProgram $out/bin/${my-name} --prefix PATH : $out/bin";
 
