@@ -1,6 +1,5 @@
 set positional-arguments
 
-
 show-directory:
   echo 
 kill: 

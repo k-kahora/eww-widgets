@@ -6,7 +6,7 @@
     (overlay 
     
 
-      (button :onhover "./sww.sh" ""))))
+      (button :onhover "./button.sh" ""))))
 (defvar button-state "./Button/button.png")
 
 (defwidget glass-button [?text] 

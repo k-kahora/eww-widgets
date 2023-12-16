@@ -4,30 +4,51 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    # Do precise filtering of files in the nix store
     nix-filter.url = "github:numtide/nix-filter";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nix-filter}:
+  outputs = { self, nixpkgs, flake-utils, nix-filter }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        lib = pkgs.lib;
+	my-name = "test";
+        my-script = (pkgs.writeScriptBin my-name (builtins.readFile ./runner.sh)).overrideAttrs(old: {
+
+          buildCommand = "${old.buildCommand}\n patchShebangs $out";
+
+        });
       in
       {
-      devShells = {
-        default = pkgs.mkShell {
+        packages = {
+          wow = pkgs.symlinkJoin {
+	    name = my-name;
+	    paths = [my-script] ++ [pkgs.swww pkgs.just pkgs.ewww];
+	    buildInputs = [pkgs.makeWrapper];
+	    builder = ./builder.sh;
+
+            postBuild = "wrapProgram $out/bin/${my-name} --prefix PATH : $out/bin";
+
+};
+        };
+	# apps.runit = {
+	# type = "app";
+	# program = "${self.packages.${system}.wow}/bin/hello.sh";
+
+	# };
+
+        defaultPackage = self.packages.${system}.wow;
+
+        devShell = pkgs.mkShell {
           packages = [
-	    pkgs.eww-wayland
-	    pkgs.just
-	    pkgs.swww
+            pkgs.eww-wayland
+            pkgs.just
+
+            pkgs.swww
           ];
-	  shellHook = ''
-	  export XDG_CONFIG_HOME="/home/malcolm/.config/"
+          shellHook = ''
+            export XDG_CONFIG_HOME="/home/malcolm/.config/"
           '';
         };
-
-       };
-     }
+      }
     );
 }
