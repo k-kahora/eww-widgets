@@ -10,10 +10,11 @@ box {
     animation-name: frame-animation;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-    animation-timing-function: steps(8);
+    animation-timing-function: steps(2);
 }
 
 @keyframes frame-animation {
-    0%   { background-image: url('./button.png'); }
+    0% { background-image: url('./button.png'); }
+    50% { background-image: url('./button.png'); }
     100% { background-image: url('./button-clicked.png'); }
 }
