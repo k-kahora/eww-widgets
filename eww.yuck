@@ -22,4 +22,4 @@
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-   (box :style "background-image: url('./button.png')"))
+   (box))
