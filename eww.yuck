@@ -4,11 +4,12 @@
        :halign "center"
     text
     (overlay 
+    
 
       (button :onhover "./sww.sh" ""))))
 (defvar button-state "./Button/button.png")
 
-(defwidget event-boxer [?text] 
+(defwidget glass-button [?text] 
   (box :halign "end" :orientation "horizontal" :hexpand false :vexpand false (overlay (image :path button-state )(button :class "glass" :onclick "./magic.sh" :timeout "6s" ) )))
      
 (defwindow example
@@ -21,4 +22,4 @@
            :stacking "fg"
            :windowtype "normal"
            :wm-ignore true
-   (event-boxer))
+   (glass-button))

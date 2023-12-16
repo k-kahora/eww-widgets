@@ -16,3 +16,6 @@ inspect:
 update var val:
   eww update {{var}}={{val}} --config ./
   
+reset:
+  eww kill --config ./
+  eww open example --config ./
