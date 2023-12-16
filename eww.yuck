@@ -9,12 +9,12 @@
 (defvar button-state "./button-clicked.png")
 
 (defwidget event-boxer [?text] 
-  (eventbox :onhover "./test.sh" (button)))
+  (eventbox :onclick "./sww.sh" (button :onclick "./sww.sh")))
      
 (defwindow example
            :monitor 1
            :geometry (geometry :x "2%"
-                               :y "2px"
+                               :y "2%"
                                :width "252px"
                                :height "156px"
                                :anchor "top right")
