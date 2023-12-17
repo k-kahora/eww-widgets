@@ -16,5 +16,5 @@ random_file=$(ls "$directory" | shuf -n 1)
 echo $directory$random_file
 # (greeter :name "mal" :text "welcom")
 # (image :path "./button.png")
-swww img $directory$random_file --transition-type simple --transition-pos 0.95,0.9 --transition-step 3
+swww img $directory$random_file --transition-type simple --transition-pos 0.95,0.9 --transition-step 200
 
