@@ -23,7 +23,12 @@
 	  cp $src/eww.scss $out/bin
 	  cp -r $src/art $out/bin
 	  cp $src/eww.yuck $out/bin
+	  # cp $src/runner.sh $out/bin
 	  cp -r $src/Button $out/bin
+	  cp $src/magic.sh $out/bin
+	  tee -a $out/bin/runner.sh <<EOF
+	  swww init
+	  eww open example --config $out/bin
 	  '';
 
         };
@@ -43,7 +48,9 @@
 	    # TODO Build phase is not doing anything 
 	    # The directory is not gettin created
 	    # result does not contain these files
-            postBuild = "wrapProgram $out/bin/${my-name} --prefix PATH : $out/bin";
+            postBuild = ''
+ 	    wrapProgram $out/bin/${my-name} --prefix PATH : $out/bin
+	    '';
 };
         };
 
