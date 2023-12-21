@@ -31,7 +31,7 @@
       cp eww.yuck $out/bin
       cp magic.sh $out/bin
         wrapProgram $out/bin/wall-button \
-        --suffix PATH : ${lib.makeBinPath [ pkgs.just pkgs.swww pkgs.eww ]}
+        --suffix PATH : ${lib.makeBinPath [ pkgs.just pkgs.swww pkgs.eww-wayland ]}
       '';
     };
 

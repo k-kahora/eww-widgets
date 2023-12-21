@@ -14,7 +14,7 @@ random_file=$(ls "$directory" | shuf -n 1)
 # echo $directory$random_file
 # (greeter :name "mal" :text "welcom")
 # (image :path "./button.png")
-# swww init
+swww init
 swww img $directory$random_file --transition-type fade --transition-pos 0.95,0.9 --transition-step 200
 sleep 0.25s
 eww update button-state="./Button/button.png" --config ./
