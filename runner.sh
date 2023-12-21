@@ -1,6 +1,5 @@
+
 #!/bin/sh
 
-# Assuming you want to run Eww with your project files
-swww init
-eww open example --config $out/bin
 
+eww open example --config /nix/store/mby7vykai046q1y67la96fk0c19jay4x-wow/bin

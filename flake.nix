@@ -16,9 +16,14 @@
 	  src = ./.;
 	  name = "wow";
 	  buildInputs = [pkgs.coreutils];
-	  phases = ["buildPhase"];
 	  buildPhase = ''
 	  mkdir -p $out/bin
+	  out_saved=$out
+	  echo "eww open example --config $out_saved/bin"  >> runner.sh
+	  echo "echo failure"  >> runner.sh
+	  '';
+	  
+	  installPhase = ''
 	  cp $src/justfile $out/bin
 	  cp $src/eww.scss $out/bin
 	  cp -r $src/art $out/bin
@@ -26,10 +31,8 @@
 	  # cp $src/runner.sh $out/bin
 	  cp -r $src/Button $out/bin
 	  cp $src/magic.sh $out/bin
-	  tee -a $out/bin/runner.sh <<EOF
-	  swww init
-	  eww open example --config $out/bin
-	  '';
+	  cp runner.sh $out/bin
+ 	  '';
 
         };
         my-script = (pkgs.writeScriptBin my-name (builtins.readFile ./runner.sh)).overrideAttrs(old: {
@@ -40,16 +43,29 @@
       in
       {
         packages = {
-          my-script = pkgs.symlinkJoin {
+	  
+          my-script = 
+          let 
+	    wow = "wow";
+
+	    scriptor = pkgs.writeShellScriptBin my-name ''
+	    out_saved=$out
+	    echo $out_saved
+	    echo $out
+	    eww open example --config $out_saved/bin
+
+	    '';
+	    in pkgs.symlinkJoin {
 	    src = self;
 	    name = my-name;
-	    paths = [build] ++ [my-script] ++ [pkgs.swww pkgs.just pkgs.eww-wayland];
+	    paths = [build] ++ [scriptor] ++ [pkgs.swww pkgs.just pkgs.eww-wayland];
 	    buildInputs = [pkgs.makeWrapper];
 	    # TODO Build phase is not doing anything 
 	    # The directory is not gettin created
 	    # result does not contain these files
             postBuild = ''
  	    wrapProgram $out/bin/${my-name} --prefix PATH : $out/bin
+	    echo 
 	    '';
 };
         };
